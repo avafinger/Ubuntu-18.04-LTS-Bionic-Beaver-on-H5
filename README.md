@@ -25,9 +25,9 @@ The table below shows the first run and values gathered are not final, YET.
 
 (*) Could not get statistics and values from kernel
 
-(**) idle temp is achieve with a simple login from console and ssh login watiting for at least 1 hr.
+(**) idle temp is achieved with a simple login from console and ssh login waiting for at least 1 hr.
 
-(***) full temp is achieve with a simple login from console and ssh login watiting for at least 1 hr and building a full kernel on board
+(***) full temp is achieved with a simple login from console and ssh login waiting for at least 1 hr and building a full kernel on board
 
 |  SBC Dev Board sample  |      NEO Plus2        |      NEO Plus2        |      NEO Plus2        |      NEO Plus2        |      NEO Plus2        |      NEO Plus2        |
 |------------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|
@@ -46,9 +46,9 @@ The table below shows the first run and values gathered are not final, YET.
 
 **Wifi enabled and in use**
 
-(**) idle temp is achieve with a simple login from console and ssh login watiting for at least 1 hr.
+(**) idle temp is achieved with a simple login from console and ssh login waiting for at least 1 hr.
 
-(***) full temp is achieve with a simple login from console and ssh login watiting for at least 1 hr and building a full kernel on board
+(***) full temp is achieved with a simple login from console and ssh login waiting for at least 1 hr and building a full kernel on board
   
 
 |  SBC Dev Board sample  |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |
@@ -112,7 +112,174 @@ Wiring 2.8" TFT display to the boards
 Building Ubuntu 18.04 LTS minimal image
 ---------------------------------------
 
-* to be completed
+**1. Set up your chroot environment**
+
+We need the chroot tools to access the ARM64 Ubuntu Base rootfs from the X86_64 (HOST PC) and add some packages
+
+
+**2. Get the Ubuntu 18.04 LTS Base files**
+
+	wget http://cdimage.ubuntu.com/ubuntu-base/bionic/daily/current/bionic-base-arm64.tar.gz
+ 
+
+**3. Find your SD CARD**
+
+Insert the **SD CARD** into USB card reader/writer and check:
+
+	dmesg|tail
+	[  181.158588] sd 6:0:0:0: [sdc] 30547968 512-byte logical blocks: (15.6 GB/14.6 GiB)
+	[  181.159831] sd 6:0:0:0: [sdc] Write Protect is off
+	[  181.159835] sd 6:0:0:0: [sdc] Mode Sense: 03 00 00 00
+	[  181.160836] sd 6:0:0:0: [sdc] No Caching mode page found
+	[  181.160841] sd 6:0:0:0: [sdc] Assuming drive cache: write through
+	[  181.167092]  sdc: sdc1 sdc2
+	[  181.170832] sd 6:0:0:0: [sdc] Attached SCSI removable disk
+	[  182.194865] EXT4-fs (sdc1): mounted filesystem with ordered data mode. Opts: (null)
+	[  182.202709] EXT4-fs (sdc2): mounted filesystem without journal. Opts: (null)
+	
+
+The SD CARD is in the format /dev/sdX where X is a letter (b,c,....), in our case is c (from above)
+
+	sd card is /dev/sdc
+
+
+**4. Format *SD CARD* with specific geometry**
+
+	sudo ./format_sd.sh /dev/sdc
+
+
+**5. Prepare the *SD CARD* with Ubuntu 18.04 LTS Minimal Rootfs**
+
+Change the SDCARD=/dev/sdX (our sd card device) to your /dev/sdX (X is your device letter)
+
+	sudo su
+	export SDCARD=/dev/sdc
+	mkdir -p rootfs
+	mount $SDCARD"2" rootfs
+
+
+**6. Decompress the rootfs**
+
+	tar -xvpzf ./bionic-base-arm64.tar.gz -C ./rootfs --numeric-ow
+	sync
+
+
+**7. Prepare the SD CARD to chroot**
+
+	cp /usr/bin/qemu-aarch64-static ./rootfs/usr/bin/
+	cp /usr/bin/qemu-arm-static ./rootfs/usr/bin/
+	sync
+
+
+**8. Prepare chroot to add some needed packages**
+
+	cp -fv /etc/resolv.conf ./etc/resolv.conf
+	cp -rvf ./etc/* ./rootfs/etc
+	sync
+
+
+**9. Update our SD CARD with the pre-built kernel**
+
+	mkdir -p ./rootfs/lib/modules
+	sudo tar -xvpzf kernel.tar.gz -C ./rootfs/lib/modules --numeric-ow
+	sync
+	mkdir -p ./rootfs/lib/firmware
+	sudo tar -xvpzf firmware.tar.gz -C ./rootfs/lib/firmware --numeric-ow
+	sync
+
+
+**10. Chroot to SD CARD and add networking**
+
+	chroot ./rootfs /bin/bash
+	apt-get install dialog kmod ifupdown net-tools apt-utils pkg-config sudo systemd udev iputils-ping init
+	**This will be the minimum packages nd if you want a bit more like dev tools and console fonts, install ubutu-minimal**
+	apt-get install ubuntu-minimal
+	**if you want to login with *ssh* then install it**
+	apt-get install ssh
+	sync
+	exit (*Exit from chroot*)
+
+
+Now we need to be able to login as **root** without password, do in shell:
+
+**11. Edit with your preferred editor the file ./rootfs/etc/passwd**
+
+Change the line from
+
+	root:x:0:0:root:/root:/bin/bash
+
+to
+
+	root::0:0:root:/root:/bin/bash
+
+and save
+
+**11. Edit with your preferred editor the file ./rootfs/etc/shadow**
+
+Note: not sure this is **really** necessary!!
+
+Change the line from
+
+	root:*:17392:0:99999:7:::
+
+to
+
+	root::17392:0:99999:7:::
+
+and save
+
+**12. Add the "ubuntu" user, or your own user**
+
+	addgroup --gid 1000 ubuntu
+	adduser --uid 1000 --gid 1000 ubuntu
+	usermod -a -G adm ubuntu
+	usermod -a -G cdrom ubuntu
+	usermod -a -G sudo ubuntu
+	usermod -a -G dip ubuntu
+	usermod -a -G plugdev ubuntu
+	usermod -a -G bluetooth ubuntu
+	usermod -aG sudo ubuntu
+	groupadd ubuntu
+	useradd -m -g adm -G root,sudo,users,audio,video,netdev,plugdev -s /bin/bash ubuntu
+	echo "ubuntu" >> passwd ubuntu
+
+
+**13. Unmount the partition**
+
+	umount ./rootfs
+	sleep 1
+	rm -rf ./rootfs
+
+
+**13. Prepare the Boot**
+
+	mkdir -p boot
+	mount $SDCARD"1" boot
+	sleep 1
+	sudo tar -xvpzf boot.tar.gz -C ./boot --numeric-ow
+	sync
+	sleep 1
+	umount ./boot
+	sleep 1
+	rm -rf ./boot
+
+
+*Prepare the booloader*
+
+	sudo dd if=spl/sunxi-spl.bin of=/dev/sdc bs=1024 seek=8
+	sync
+	sudo dd if=u-boot.itb of=/dev/sdc bs=1024 seek=40
+	sync
+
+
+Exit from **su** (root)
+
+	exit
+
+**14. We have now our Ubuntu 18.04 LTS Image on SD CARD**
+
+	Just make sure the SD CARD is unmounted and remove it from the USB reader/writer
+
 
   
 Screenshots
