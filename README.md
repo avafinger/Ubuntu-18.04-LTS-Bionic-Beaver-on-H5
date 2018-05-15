@@ -15,11 +15,14 @@ The table below shows the first run and values gathered are not final, YET.
 | display / Touch IC     | 2.8" TFT ILI9341      | 2.8" TFT ILI9341      | 2.8" TFT ILI9341      | 2.8" TFT ILI9341      | 2.8" TFT ILI9341      | 2.8" TFT ILI9341      | 
 | graphical interface    | framebuffer           | framebuffer           | framebuffer           | framebuffer           | framebuffer           | framebuffer           |
 | power regulator IC     | none in this revision | none in this revision | none in this revision | none in this revision | none in this revision | none in this revision |
-| idle Temp ºC / freq    | 30 ºC                 | 30 ºC                 | 30 ºC                 | 29 ºC                 | 28 ºC                 | 26 ºC (*)             |
-| full Temp ºC / freq    | 39 ºC / 1008 Mhz      | 39 ºC / 1008 Mhz      | 39 ºC / 1008 Mhz      | 39 ºC / 1008 Mhz      | 39 ºC / 1008 Mhz      | 39 ºC / 1008 Mhz      |
+| idle Temp ºC / freq    | NA  (*)               | NA (*)                | NA (*)                | 29 ºC / 480 Mhz       | 28 ºC / 480 Mhz       | 26 ºC (*)             |
+| full Temp ºC / freq    | NA  (*)               | NA (*)                | NA (*)                | 39 ºC / 1008 Mhz      | 39 ºC / 1008 Mhz      | 39 ºC / 1008 Mhz      |
 | RAM memory usage (avg) | 46 Mbytes             | 46 Mbytes             | 46 Mbytes             | 46 Mbytes             | 46 Mbytes             | 44 Mbytes             |
 | Wifi                   | none                  | none                  | none                  | none                  | none                  | none                  |
 | BT                     | none                  | none                  | none                  | none                  | none                  | none                  |
+| issues                 | none                  | USB hid regression    | none                  | none                  | none                  | none                  |
+
+(*) Could not get statistics and values from kernel
 
   
 
