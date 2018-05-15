@@ -121,7 +121,7 @@ Screenshots
 
 [![arm64 screenshot desktop](https://github.com/avafinger/Ubuntu-18.04-LTS-Bionic-Beaver-on-H5/raw/master/img/desktop-2.png)]
 
-[![arm64 screenshot SDL](https://github.com/avafinger/Ubuntu-18.04-LTS-Bionic-Beaver-on-H5/raw/master/img/ballfiled-2.png)]
+[![arm64 screenshot SDL](https://github.com/avafinger/Ubuntu-18.04-LTS-Bionic-Beaver-on-H5/raw/master/img/ballfield-2.png)]
 
 
 
