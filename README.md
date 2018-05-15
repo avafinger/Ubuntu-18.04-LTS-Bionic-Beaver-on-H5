@@ -103,6 +103,26 @@ Building Ubuntu 18.04 LTS minimal image
 * to be completed
 
   
+Screenshots
+-----------
+
+* kernel 4.17.0-rc5 (framebuffer)
+
+[![arm64 screenshot](https://github.com/avafinger/h5-mainline/raw/master/img/kernel_4.17.rc5.png)]
+
+[![arm64 screenshot](https://github.com/avafinger/h5-mainline/raw/master/img/kernel_4.17.rc5_mc.png)]
+
+[![arm64 screenshot](https://github.com/avafinger/h5-mainline/raw/master/img/kernel_4.17.rc5_htop.png)]
+
+
+* X11 / Desktop
+
+[![arm64 screenshot desktop](https://github.com/avafinger/h5-mainline/raw/master/img/desktop-1.png)]
+
+[![arm64 screenshot desktop](https://github.com/avafinger/h5-mainline/raw/master/img/desktop-2.png)]
+
+[![arm64 screenshot SDL](https://github.com/avafinger/h5-mainline/raw/master/img/ballfiled-2.png)]
+
 
 
 To Do
