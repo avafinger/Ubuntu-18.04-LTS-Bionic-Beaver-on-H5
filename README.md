@@ -15,16 +15,19 @@ The table below shows the first run and values gathered are not final, YET.
 | display / Touch IC     | 2.8" TFT ILI9341      | 2.8" TFT ILI9341      | 2.8" TFT ILI9341      | 2.8" TFT ILI9341      | 2.8" TFT ILI9341      | 2.8" TFT ILI9341      | 
 | graphical interface    | framebuffer           | framebuffer           | framebuffer           | framebuffer           | framebuffer           | framebuffer           |
 | power regulator IC     | none in this revision | none in this revision | none in this revision | none in this revision | none in this revision | none in this revision |
-| idle Temp ºC / freq    | NA  (*)               | NA (*)                | NA (*)                | 29 ºC / 480 Mhz       | 28 ºC / 480 Mhz       | 26 ºC (*)             |
-| full Temp ºC / freq    | NA  (*)               | NA (*)                | NA (*)                | 39 ºC / 1008 Mhz      | 39 ºC / 1008 Mhz      | 39 ºC / 1008 Mhz      |
+| idle Temp ºC / freq    | NA  (*)               | NA (*)                | NA (*)                | 29 ºC / 480 Mhz       | 28 ºC / 480 Mhz       | 26 ºC / 480 Mhz  (**) |
+| full Temp ºC / freq    | NA  (*)               | NA (*)                | NA (*)                | 39 ºC / 1008 Mhz      | 39 ºC / 1008 Mhz      | 39 ºC / 1008 Mhz (***)|
 | RAM memory usage (avg) | 46 Mbytes             | 46 Mbytes             | 46 Mbytes             | 46 Mbytes             | 46 Mbytes             | 44 Mbytes             |
 | Wifi                   | none                  | none                  | none                  | none                  | none                  | none                  |
 | BT                     | none                  | none                  | none                  | none                  | none                  | none                  |
+| Gbps / Fast ethernet   | ok / ok               | ok / ok               | ok / ok               | ok / ok               | ok / ok               | ok / ok               |
 | issues                 | none                  | USB hid regression    | none                  | none                  | none                  | none                  |
 
 (*) Could not get statistics and values from kernel
 
-  
+(**) idle temp is achieve with a simple login from console and ssh login watiting for at least 1 hr.
+
+(***) full temp is achieve with a simple login from console and ssh login watiting for at least 1 hr and building a full kernel on board
 
 |  SBC Dev Board sample  |      NEO Plus2        |      NEO Plus2        |      NEO Plus2        |      NEO Plus2        |      NEO Plus2        |      NEO Plus2        |
 |------------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|
@@ -33,12 +36,19 @@ The table below shows the first run and values gathered are not final, YET.
 | display / Touch IC     | 2.8" ST7789S / ADS7846| 2.8" ST7789S / ADS7846| 2.8" ST7789S / ADS7846| 2.8" ST7789S / ADS7846| 2.8" ST7789S / ADS7846| 2.8" ST7789S / ADS7846| 
 | graphical interface    | framebuffer           | framebuffer           | framebuffer           | framebuffer           | framebuffer           | X11 / Desktop         |
 | power regulator IC     | SY8106                | SY8106                | SY8106                | SY8106                | SY8106                | SY8106                |
-| idle Temp ºC / freq    | WiP                   | WiP                   | WiP                   | WiP                   | WiP                   | WiP                   |
-| full Temp ºC / freq    | WiP                   | WiP                   | WiP                   | WiP                   | WiP                   | WiP                   |
-| RAM memory usage (avg) | WiP                   | WiP                   | WiP                   | WiP                   | WiP                   | WiP                   |
-| Wifi                   | not tested            | not tested            | not tested            | not tested            | not tested            | not tested            |
+| idle Temp ºC / freq    | WiP                   | WiP                   | WiP                   | WiP                   | WiP                   | 27 ºC / 624 Mhz  (**) |
+| full Temp ºC / freq    | WiP                   | WiP                   | WiP                   | WiP                   | WiP                   | 55 ºC / 1200 Mhz (***)|
+| RAM memory usage (avg) | WiP                   | WiP                   | WiP                   | WiP                   | WiP                   | 46 Mbytes             |
+| Wifi                   | not tested            | not tested            | not tested            | not tested            | not tested            | OK                    |
 | BT                     | not tested            | not tested            | not tested            | not tested            | not tested            | not tested            |
+| Gbps / Fast ethernet   | ok / ok               | ok / ok               | ok / ok               | ok / ok               | ok / ok               | ok / ok               |
+| issues                 | none                  | USB hid regression    | none                  | none                  | none                  | none                  |
 
+**Wifi enabled and in use**
+
+(**) idle temp is achieve with a simple login from console and ssh login watiting for at least 1 hr.
+
+(***) full temp is achieve with a simple login from console and ssh login watiting for at least 1 hr and building a full kernel on board
   
 
 |  SBC Dev Board sample  |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |
@@ -85,9 +95,11 @@ The table below shows the first run and values gathered are not final, YET.
 | BT                     |      NA               |      NA               |      NA               |      NA               |      NA               |      NA               |
 
 
+
 * K1 Plus is on the way, thanks to FriendlyElec.
 * BPI-Zero H5 availability is Unknown according to Nora Lee from FoxConn.
 * OrangePi board samples have been held by Customs (bad luck), but there are plenty of distro out there, but would be nice to have one with SY8106 just to compare.
+
 
 
 Wiring 2.8" TFT display to the boards
