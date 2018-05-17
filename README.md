@@ -28,6 +28,7 @@ The table below shows the first run and values gathered are not final, YET.
 (**) idle temp is achieved with a simple login from console and ssh login waiting for at least 1 hr.
 
 (***) full temp is achieved with a simple login from console and ssh login waiting for at least 1 hr and building a full kernel on board
+Full kernel build takes > 5 hrs on a slow SD CARD.
 
 |  SBC Dev Board sample  |      NEO Plus2        |      NEO Plus2        |      NEO Plus2        |      NEO Plus2        |      NEO Plus2        |      NEO Plus2        |
 |------------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|
@@ -35,7 +36,7 @@ The table below shows the first run and values gathered are not final, YET.
 | gcc version            |     7.3.0             |     7.2.1             |     7.2.1             |     7.2.1             |     7.3.0             |     7.2.1             |
 | display / Touch IC     | 2.8" ST7789S / ADS7846| 2.8" ST7789S / ADS7846| 2.8" ST7789S / ADS7846| 2.8" ST7789S / ADS7846| 2.8" ST7789S / ADS7846| 2.8" ST7789S / ADS7846| 
 | graphical interface    | framebuffer           | framebuffer           | framebuffer           | framebuffer           | framebuffer           | X11 / Desktop         |
-| power regulator IC     | SY8106                | SY8106                | SY8106                | SY8106                | SY8106                | SY8106                |
+| power regulator IC     | gpio-fixed 1v1 / 1v3  | gpio-fixed 1v1 / 1v3  | gpio-fixed 1v1 / 1v3  | gpio-fixed 1v1 / 1v3  | gpio-fixed 1v1 / 1v3  | gpio-fixed 1v1 / 1v3                |
 | idle Temp ºC / freq    | WiP                   | WiP                   | WiP                   | WiP                   | WiP                   | 27 ºC / 624 Mhz  (**) |
 | full Temp ºC / freq    | WiP                   | WiP                   | WiP                   | WiP                   | WiP                   | 55 ºC / 1200 Mhz (***)|
 | RAM memory usage (avg) | WiP                   | WiP                   | WiP                   | WiP                   | WiP                   | 46 Mbytes             |
@@ -48,7 +49,8 @@ The table below shows the first run and values gathered are not final, YET.
 
 (**) idle temp is achieved with a simple login from console and ssh login waiting for at least 1 hr.
 
-(***) full temp is achieved with a simple login from console and ssh login waiting for at least 1 hr and building a full kernel on board
+(***) full temp is achieved with a simple login from console and ssh login waiting for at least 1 hr and building a full kernel on board.
+Full kernel build takes > 5 hrs on a slow SD CARD.
   
 
 |  SBC Dev Board sample  |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |
@@ -57,7 +59,7 @@ The table below shows the first run and values gathered are not final, YET.
 | gcc version            |      NA               |      NA               |      NA               |      NA               |      NA               |      NA               |
 | display / Touch ID     |      NA               |      NA               |      NA               |      NA               |      NA               |      NA               |
 | graphical interface    |      NA               |      NA               |      NA               |      NA               |      NA               |      NA               |
-| power regulator IC     |      NA               |      NA               |      NA               |      NA               |      NA               |      NA               |
+| power regulator IC     |      SY8106           |      SY8106           |      SY8106           |      SY8106           |      SY8106           |      SY8106           |
 | idle Temp ºC / freq    |      NA               |      NA               |      NA               |      NA               |      NA               |      NA               |
 | full Temp ºC / freq    |      NA               |      NA               |      NA               |      NA               |      NA               |      NA               |
 | RAM memory usage (avg) |      NA               |      NA               |      NA               |      NA               |      NA               |      NA               |
