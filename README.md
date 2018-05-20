@@ -111,10 +111,10 @@ Here is the wiring diagram:
 [![lcd diagram](https://github.com/avafinger/Ubuntu-18.04-LTS-Bionic-Beaver-on-H5/raw/master/img/wiring.png)]
 
 K1 Plus view
-[![k1 plus wiring](https://github.com/avafinger/Ubuntu-18.04-LTS-Bionic-Beaver-on-H5/raw/master/img/k1.png)]
+[![k1 plus wiring](https://github.com/avafinger/Ubuntu-18.04-LTS-Bionic-Beaver-on-H5/raw/master/img/k1.jpg)]
 
 LCD
-[![k1 plus lcd](https://github.com/avafinger/Ubuntu-18.04-LTS-Bionic-Beaver-on-H5/raw/master/img/ili9341.png)]
+[![k1 plus lcd](https://github.com/avafinger/Ubuntu-18.04-LTS-Bionic-Beaver-on-H5/raw/master/img/ili9341.jpg)]
   
 
 Building Ubuntu 18.04 LTS minimal image
