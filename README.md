@@ -60,8 +60,8 @@ Full kernel build takes > 5 hrs on a slow SD CARD.
 | display / Touch ID     |      2.8" TFT ILI9341 |      NA               |      NA               |      NA               |      NA               |      NA               |
 | graphical interface    |      framebuffer      |      NA               |      NA               |      NA               |      NA               |      NA               |
 | power regulator IC     |      SY8106           |      SY8106           |      SY8106           |      SY8106           |      SY8106           |      SY8106           |
-| idle Temp ºC / freq    |      NA               |      NA               |      NA               |      NA               |      NA               |      NA               |
-| full Temp ºC / freq    |      NA               |      NA               |      NA               |      NA               |      NA               |      NA               |
+| idle Temp ºC / freq    |      NA / 648 Mhz     |      NA               |      NA               |      NA               |      NA               |      NA               |
+| full Temp ºC / freq    |      NA / 1368 Mhz    |      NA               |      NA               |      NA               |      NA               |      NA               |
 | RAM memory usage (avg) |      55 Mbytes        |      NA               |      NA               |      NA               |      NA               |      NA               |
 | Wifi                   |      Ok               |      NA               |      NA               |      NA               |      NA               |      NA               |
 | BT                     |      none             |      NA               |      NA               |      NA               |      NA               |      NA               |
