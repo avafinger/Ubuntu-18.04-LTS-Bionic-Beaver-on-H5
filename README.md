@@ -55,16 +55,16 @@ Full kernel build takes > 5 hrs on a slow SD CARD.
 
 |  SBC Dev Board sample  |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |
 |------------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|
-| kernel version         |      NA               |      NA               |      NA               |      NA               |      NA               |      NA               |
-| gcc version            |      NA               |      NA               |      NA               |      NA               |      NA               |      NA               |
-| display / Touch ID     |      NA               |      NA               |      NA               |      NA               |      NA               |      NA               |
-| graphical interface    |      NA               |      NA               |      NA               |      NA               |      NA               |      NA               |
+| kernel version         |      4.17.rc5         |      NA               |      NA               |      NA               |      NA               |      NA               |
+| gcc version            |      7.2.1            |      NA               |      NA               |      NA               |      NA               |      NA               |
+| display / Touch ID     |      2.8" TFT ILI9341 |      NA               |      NA               |      NA               |      NA               |      NA               |
+| graphical interface    |      framebuffer      |      NA               |      NA               |      NA               |      NA               |      NA               |
 | power regulator IC     |      SY8106           |      SY8106           |      SY8106           |      SY8106           |      SY8106           |      SY8106           |
 | idle Temp ºC / freq    |      NA               |      NA               |      NA               |      NA               |      NA               |      NA               |
 | full Temp ºC / freq    |      NA               |      NA               |      NA               |      NA               |      NA               |      NA               |
-| RAM memory usage (avg) |      NA               |      NA               |      NA               |      NA               |      NA               |      NA               |
-| Wifi                   |      NA               |      NA               |      NA               |      NA               |      NA               |      NA               |
-| BT                     |      NA               |      NA               |      NA               |      NA               |      NA               |      NA               |
+| RAM memory usage (avg) |      55 Mbytes        |      NA               |      NA               |      NA               |      NA               |      NA               |
+| Wifi                   |      Ok               |      NA               |      NA               |      NA               |      NA               |      NA               |
+| BT                     |      none             |      NA               |      NA               |      NA               |      NA               |      NA               |
 
      
 
