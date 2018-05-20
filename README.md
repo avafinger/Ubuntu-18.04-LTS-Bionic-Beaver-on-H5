@@ -107,8 +107,14 @@ Full kernel build takes > 5 hrs on a slow SD CARD.
 Wiring 2.8" TFT display to the boards
 -------------------------------------
 
-* to be completed
+Here is the wiring diagram:
+[![lcd diagram](https://github.com/avafinger/Ubuntu-18.04-LTS-Bionic-Beaver-on-H5/raw/master/img/wiring.png)]
 
+K1 Plus view
+[![k1 plus wiring](https://github.com/avafinger/Ubuntu-18.04-LTS-Bionic-Beaver-on-H5/raw/master/img/k1.png)]
+
+LCD
+[![k1 plus lcd](https://github.com/avafinger/Ubuntu-18.04-LTS-Bionic-Beaver-on-H5/raw/master/img/ili9341.png)]
   
 
 Building Ubuntu 18.04 LTS minimal image
