@@ -55,18 +55,21 @@ Full kernel build takes > 5 hrs on a slow SD CARD.
 
 |  SBC Dev Board sample  |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |
 |------------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|
-| kernel version         |      4.17.rc5         |      NA               |      NA               |      NA               |      NA               |      NA               |
-| gcc version            |      7.2.1            |      NA               |      NA               |      NA               |      NA               |      NA               |
-| display / Touch ID     |      2.8" TFT ILI9341 |      NA               |      NA               |      NA               |      NA               |      NA               |
-| graphical interface    |      framebuffer      |      NA               |      NA               |      NA               |      NA               |      NA               |
+| kernel version         |      4.17.rc5         |      4.17.rc6         |      NA               |      NA               |      NA               |      NA               |
+| gcc version            |      7.2.1            |      7.2.1            |      NA               |      NA               |      NA               |      NA               |
+| display / Touch ID     |      2.8" TFT ILI9341 |      2.8" TFT ILI9341 |      NA               |      NA               |      NA               |      NA               |
+| graphical interface    |      framebuffer      |      framebuffer      |      NA               |      NA               |      NA               |      NA               |
 | power regulator IC     |      SY8106           |      SY8106           |      SY8106           |      SY8106           |      SY8106           |      SY8106           |
-| idle Temp ºC / freq    |      NA / 648 Mhz     |      NA               |      NA               |      NA               |      NA               |      NA               |
-| full Temp ºC / freq    |      NA / 1368 Mhz    |      NA               |      NA               |      NA               |      NA               |      NA               |
-| RAM memory usage (avg) |      55 Mbytes        |      NA               |      NA               |      NA               |      NA               |      NA               |
+| idle Temp ºC / freq    |      NA / 648 Mhz (*) |      NA / 480 Mhz (*) |      NA               |      NA               |      NA               |      NA               |
+| full Temp ºC / freq    |      NA / 1368 Mhz    |      NA / 1368 Mhz    |      NA               |      NA               |      NA               |      NA               |
+| RAM memory usage (avg) |      55 Mbytes        |      54 Mbytes        |      NA               |      NA               |      NA               |      NA               |
 | Wifi                   |      Ok               |      NA               |      NA               |      NA               |      NA               |      NA               |
 | BT                     |      none             |      NA               |      NA               |      NA               |      NA               |      NA               |
 
-     
+(*) Still not able to get  /sys/class/thermal/thermal_zone0/temp values for some reason, i suspect my DTB has some issue. 
+![htop (https://github.com/avafinger/Ubuntu-18.04-LTS-Bionic-Beaver-on-H5/raw/master/img/htop_rc6.png)
+
+[![free mem](https://github.com/avafinger/Ubuntu-18.04-LTS-Bionic-Beaver-on-H5/raw/master/img/free_rc6.png)]
 
 |  SBC Dev Board sample  |      BPI H5           |      BPI H5           |      BPI H5           |      BPI H5           |      BPI H5           |      BPI H5           |
 |------------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|
