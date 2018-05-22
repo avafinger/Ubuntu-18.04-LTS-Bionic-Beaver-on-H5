@@ -67,7 +67,8 @@ Full kernel build takes > 5 hrs on a slow SD CARD.
 | BT                     |      none             |      NA               |      NA               |      NA               |      NA               |      NA               |
 
 (*) Still not able to get  /sys/class/thermal/thermal_zone0/temp values for some reason, i suspect my DTB has some issue. 
-[![htop] (https://github.com/avafinger/Ubuntu-18.04-LTS-Bionic-Beaver-on-H5/raw/master/img/htop_rc6.png)]
+
+[![htop](https://github.com/avafinger/Ubuntu-18.04-LTS-Bionic-Beaver-on-H5/raw/master/img/htop_rc6.png)]
 
 [![free mem](https://github.com/avafinger/Ubuntu-18.04-LTS-Bionic-Beaver-on-H5/raw/master/img/free_rc6.png)]
 
