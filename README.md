@@ -60,13 +60,16 @@ Full kernel build takes > 5 hrs on a slow SD CARD.
 | display / Touch ID     |      2.8" TFT ILI9341 |      2.8" TFT ILI9341 |      NA               |      NA               |      NA               |      NA               |
 | graphical interface    |      framebuffer      |      framebuffer      |      NA               |      NA               |      NA               |      NA               |
 | power regulator IC     |      SY8106           |      SY8106           |      SY8106           |      SY8106           |      SY8106           |      SY8106           |
-| idle Temp ºC / freq    |      NA / 648 Mhz (*) |      NA / 480 Mhz (*) |      NA               |      NA               |      NA               |      NA               |
-| full Temp ºC / freq    |      NA / 1368 Mhz    |      NA / 1368 Mhz    |      NA               |      NA               |      NA               |      NA               |
+| idle Temp ºC / freq    |      NA / 648 Mhz (*) |  25 ºC / ~720 Mhz     |      NA               |      NA               |      NA               |      NA               |
+| full Temp ºC / freq    |      NA / 1368 Mhz    |  51 ºC / 1368 Mhz (**)|      NA               |      NA               |      NA               |      NA               |
 | RAM memory usage (avg) |      55 Mbytes        |      54 Mbytes        |      NA               |      NA               |      NA               |      NA               |
 | Wifi                   |      Ok               |      NA               |      NA               |      NA               |      NA               |      NA               |
 | BT                     |      none             |      NA               |      NA               |      NA               |      NA               |      NA               |
+| issues                 |      none             |      none             |      none             | none                  | none                  | none                  |
 
-(*) Still not able to get  /sys/class/thermal/thermal_zone0/temp values for some reason, i suspect my DTB has some issue. 
+
+(*) Still not able to get  /sys/class/thermal/thermal_zone0/temp due to missing THS.
+(**) added THS to the kernel, CPU avg freq for the 4 cores = 110% , never gets 400% while compiling the full kernel on board.
 
 [![htop](https://github.com/avafinger/Ubuntu-18.04-LTS-Bionic-Beaver-on-H5/raw/master/img/htop_rc6.png)]
 
@@ -101,11 +104,7 @@ Full kernel build takes > 5 hrs on a slow SD CARD.
 | BT                     |      NA               |      NA               |      NA               |      NA               |      NA               |      NA               |
 
 
-
 * K1 Plus is on the way, thanks to FriendlyElec.
-* BPI-Zero H5 availability is Unknown according to Nora Lee from FoxConn.
-* OrangePi board samples have been held by Customs (bad luck), but there are plenty of distro out there, but would be nice to have one with SY8106 just to compare.
-
 
 
 Wiring 2.8" TFT display to the boards
