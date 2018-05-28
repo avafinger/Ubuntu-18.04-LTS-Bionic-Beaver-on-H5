@@ -68,9 +68,12 @@ Full kernel build takes > 5 hrs on a slow SD CARD.
 | issues                 |      none             |      (1)              |      none             | none                  | none                  | none                  |
 
 (1) When in very high load with Wifi and Gbps in use, Wifi has disconected and reconected later, i think regulatory.db is not properly populated
+
 (*) Still not able to get  /sys/class/thermal/thermal_zone0/temp due to missing THS.
-(* *) added THS to the kernel, CPU avg freq for the 4 cores = 110% , never gets 400% while compiling the full kernel on board.
-(* * *) The ambient temp varies along the test and is not a controlled ambient, so it is just for reference.
+
+(**) THS added to the kernel, CPU avg freq for the 4 cores = 110% , never gets 400% while compiling the full kernel on board.
+
+(***) The ambient temp varies along the test and is not a controlled ambient, so it is just for reference.
  
 Kernel:
 
