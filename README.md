@@ -69,15 +69,16 @@ Full kernel build takes > 5 hrs on a slow SD CARD.
 
 (1) When in very high load with Wifi and Gbps in use, Wifi has disconected and reconected later, i think regulatory.db is not properly populated
 (*) Still not able to get  /sys/class/thermal/thermal_zone0/temp due to missing THS.
-(**) added THS to the kernel, CPU avg freq for the 4 cores = 110% , never gets 400% while compiling the full kernel on board.
-(***) The ambient temp varies along the test and is not a controlled ambient, so it is just for reference.
+(* *) added THS to the kernel, CPU avg freq for the 4 cores = 110% , never gets 400% while compiling the full kernel on board.
+(* * *) The ambient temp varies along the test and is not a controlled ambient, so it is just for reference.
+ 
+Kernel:
 
-	uname -ra
-	Linux nanopi-k1-plus 4.17.0-rc7-h5 #1 SMP Mon May 28 11:59:24 UTC 2018 aarch64 aarch64 aarch64 GNU/Linux
+	Linux version 4.17.0-rc7-h5 (ubuntu@nanopi-k1-plus) (gcc version 7.3.0 (Ubuntu/Linaro 7.3.0-16ubuntu3)) #1 SMP Mon May 28 11:59:24 UTC 2018
 
-  
+                             
+Interfaces:
 
-	ifconfig
 	eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 	        inet 192.168.254.100  netmask 255.255.0.0  broadcast 192.168.255.255
 	        inet6 fe80::1:fcff:fe05:2848  prefixlen 64  scopeid 0x20<link>
