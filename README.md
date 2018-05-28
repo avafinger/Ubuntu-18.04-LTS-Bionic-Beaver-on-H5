@@ -55,21 +55,57 @@ Full kernel build takes > 5 hrs on a slow SD CARD.
 
 |  SBC Dev Board sample  |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |
 |------------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|
-| kernel version         |      4.17.rc5         |      4.17.rc6         |      NA               |      NA               |      NA               |      NA               |
-| gcc version            |      7.2.1            |      7.2.1            |      NA               |      NA               |      NA               |      NA               |
-| display / Touch ID     |      2.8" TFT ILI9341 |      2.8" TFT ILI9341 |      NA               |      NA               |      NA               |      NA               |
-| graphical interface    |      framebuffer      |      framebuffer      |      NA               |      NA               |      NA               |      NA               |
+| kernel version         |      4.17.rc5         |      4.17.rc6         |      4.17.rc7         |      NA               |      NA               |      NA               |
+| gcc version            |      7.2.1            |      7.2.1            |      7.3.0            |      NA               |      NA               |      NA               |
+| display / Touch ID     |      2.8" TFT ILI9341 |      2.8" TFT ILI9341 |      2.8" TFT ILI9341 |      NA               |      NA               |      NA               |
+| graphical interface    |      framebuffer      |      framebuffer      |      framebuffer      |      NA               |      NA               |      NA               |
 | power regulator IC     |      SY8106           |      SY8106           |      SY8106           |      SY8106           |      SY8106           |      SY8106           |
-| idle Temp ºC / freq    |      NA / 648 Mhz (*) |  25 ºC / ~720 Mhz     |      NA               |      NA               |      NA               |      NA               |
-| full Temp ºC / freq    |      NA / 1368 Mhz    |  51 ºC / 1368 Mhz (**)|      NA               |      NA               |      NA               |      NA               |
-| RAM memory usage (avg) |      55 Mbytes        |      54 Mbytes        |      NA               |      NA               |      NA               |      NA               |
+| idle Temp ºC / freq    |      NA / 648 Mhz (*) |  25 ºC / ~720 Mhz     |  26 ºC / ~720 Mhz     |      NA               |      NA               |      NA               |
+| full Temp ºC / freq    |      NA / 1368 Mhz    |  51 ºC / 1368 Mhz (**)|  54 ºC / 1368 Mhz(***)|      NA               |      NA               |      NA               |
+| RAM memory usage (avg) |      55 Mbytes        |      54 Mbytes        |      55 Mbytes        |      NA               |      NA               |      NA               |
 | Wifi                   |      Ok               |      NA               |      NA               |      NA               |      NA               |      NA               |
 | BT                     |      none             |      NA               |      NA               |      NA               |      NA               |      NA               |
-| issues                 |      none             |      none             |      none             | none                  | none                  | none                  |
+| issues                 |      none             |      (1)              |      none             | none                  | none                  | none                  |
 
-
+(1) When in very high load with Wifi and Gbps in use, Wifi has disconected and reconected later, i think regulatory.db is not properly populated
 (*) Still not able to get  /sys/class/thermal/thermal_zone0/temp due to missing THS.
 (**) added THS to the kernel, CPU avg freq for the 4 cores = 110% , never gets 400% while compiling the full kernel on board.
+(***) The ambient temp varies along the test and is not a controlled ambient, so it is just for reference.
+
+	uname -ra
+	Linux nanopi-k1-plus 4.17.0-rc7-h5 #1 SMP Mon May 28 11:59:24 UTC 2018 aarch64 aarch64 aarch64 GNU/Linux
+
+  
+
+	ifconfig
+	eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+	        inet 192.168.254.100  netmask 255.255.0.0  broadcast 192.168.255.255
+	        inet6 fe80::1:fcff:fe05:2848  prefixlen 64  scopeid 0x20<link>
+	        ether 02:01:fc:05:28:48  txqueuelen 1000  (Ethernet)
+	        RX packets 10332  bytes 807119 (807.1 KB)
+	        RX errors 0  dropped 0  overruns 0  frame 0
+	        TX packets 10198  bytes 1235786 (1.2 MB)
+	        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+	        device interrupt 26  
+	
+	lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+	        inet 127.0.0.1  netmask 255.0.0.0
+	        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+	        loop  txqueuelen 1000  (Local Loopback)
+	        RX packets 84  bytes 6280 (6.2 KB)
+	        RX errors 0  dropped 0  overruns 0  frame 0
+	        TX packets 84  bytes 6280 (6.2 KB)
+	        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+	
+	wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+	        inet 192.168.254.104  netmask 255.255.0.0  broadcast 192.168.255.255
+	        inet6 fe80::7ec7:9ff:fea5:4611  prefixlen 64  scopeid 0x20<link>
+	        ether 7c:c7:09:a5:46:11  txqueuelen 1000  (Ethernet)
+	        RX packets 763  bytes 94077 (94.0 KB)
+	        RX errors 0  dropped 0  overruns 0  frame 0
+	        TX packets 22  bytes 3216 (3.2 KB)
+	        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
 
 [![htop](https://github.com/avafinger/Ubuntu-18.04-LTS-Bionic-Beaver-on-H5/raw/master/img/htop_rc6.png)]
 
