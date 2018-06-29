@@ -23,7 +23,7 @@ The table below shows the first run and values gathered are not final, YET.
 | Gbps / Fast ethernet   | ok / ok               | ok / ok               | ok / ok               | ok / ok               | ok / ok               | ok / ok               |
 | issues                 | none                  | USB hid regression    | none                  | none                  | none                  | none                  |
 
-(*) Could not get statistics and values from kernel
+(*) Could not get statistics and values from kernel (**FIXED**)
 
 (**) idle temp is achieved with a simple login from console and ssh login waiting for at least 1 hr.
 
@@ -55,23 +55,24 @@ Full kernel build takes > 5 hrs on a slow SD CARD.
 
 |  SBC Dev Board sample  |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |
 |------------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|
-| kernel version         |      4.17.rc5         |      4.17.rc6         |      4.17.rc7         |      NA               |      NA               |      NA               |
-| gcc version            |      7.2.1            |      7.2.1            |      7.3.0            |      NA               |      NA               |      NA               |
-| display / Touch ID     |      2.8" TFT ILI9341 |      2.8" TFT ILI9341 |      2.8" TFT ILI9341 |      NA               |      NA               |      NA               |
-| graphical interface    |      framebuffer      |      framebuffer      |      framebuffer      |      NA               |      NA               |      NA               |
+| kernel version         |      4.17.rc5         |      4.17.rc6         |      4.17.rc7         |      4.17.3           |      NA               |      NA               |
+| gcc version            |      7.2.1            |      7.2.1            |      7.3.0            |      7.2.1            |      NA               |      NA               |
+| display / Touch ID     |      2.8" TFT ILI9341 |      2.8" TFT ILI9341 |      2.8" TFT ILI9341 |   hdmi / 1920x1080    |      NA               |      NA               |
+| graphical interface    |      framebuffer      |      framebuffer      |      framebuffer      |      framebuffer      |      NA               |      NA               |
 | power regulator IC     |      SY8106           |      SY8106           |      SY8106           |      SY8106           |      SY8106           |      SY8106           |
-| idle Temp ºC / freq    |      NA / 648 Mhz (*) |  25 ºC / ~720 Mhz     |  26 ºC / ~720 Mhz     |      NA               |      NA               |      NA               |
-| full Temp ºC / freq    |      NA / 1368 Mhz    |  51 ºC / 1368 Mhz (**)|  54 ºC / 1368 Mhz(***)|      NA               |      NA               |      NA               |
-| RAM memory usage (avg) |      55 Mbytes        |      54 Mbytes        |      55 Mbytes        |      NA               |      NA               |      NA               |
-| Wifi                   |      Ok               |      NA               |      NA               |      NA               |      NA               |      NA               |
+| idle Temp ºC / freq    |      NA / 648 Mhz (*) |  25 ºC / ~720 Mhz     |  26 ºC / ~720 Mhz     |  33 ºC / ~720 Mhz     |      NA               |      NA               |
+| full Temp ºC / freq    |      NA / 1368 Mhz    |  51 ºC / 1368 Mhz (**)|  54 ºC / 1368 Mhz(***)|  68 ºC / 1368 Mhz(***)|      NA               |      NA               |
+| RAM memory usage (avg) |      55 Mbytes        |      54 Mbytes        |      55 Mbytes        |      78 Mbytes        |      NA               |      NA               |
+| Wifi                   |      Ok               |      NA               |      Ok               |      Ok               |      NA               |      NA               |
 | BT                     |      none             |      NA               |      NA               |      NA               |      NA               |      NA               |
 | issues                 |      none             |      (1)              |      none             | none                  | none                  | none                  |
 
 (1) When in very high load with Wifi and Gbps in use, Wifi has disconected and reconected later, i think regulatory.db is not properly populated
 
-(*) Still not able to get  /sys/class/thermal/thermal_zone0/temp due to missing THS.
+(*) Still not able to get  /sys/class/thermal/thermal_zone0/temp due to missing THS. (Fixed)
 
-(**) THS added to the kernel, CPU avg freq for the 4 cores = 110% , never gets 400% while compiling the full kernel on board.
+(**) THS added to the kernel, CPU avg freq for the 4 cores = 110% , never gets 400% while compiling the full kernel on board. (Fixed)
+Can use 100% of all cores for the tests. (FIXED)
 
 (***) The ambient temp varies along the test and is not a controlled ambient, so it is just for reference.
  
@@ -243,9 +244,15 @@ Change the SDCARD=/dev/sdX (our sd card device) to your /dev/sdX (X is your devi
 
 	chroot ./rootfs /bin/bash
 	apt-get install dialog kmod ifupdown net-tools apt-utils pkg-config sudo systemd udev iputils-ping init
-	**This will be the minimum packages nd if you want a bit more like dev tools and console fonts, install ubutu-minimal**
+
+
+	
+*This will be the minimum packages nd if you want a bit more like dev tools and console fonts, install ubutu-minimal*
 	apt-get install ubuntu-minimal
-	**if you want to login with *ssh* then install it**
+
+	
+ 	
+*if you want to login with *ssh* then install it*
 	apt-get install ssh
 	sync
 	exit (*Exit from chroot*)
@@ -279,7 +286,7 @@ to
 
 and save
 
-**12. Add the "ubuntu" user, or your own user**
+**12. Add the "ubuntu" user, or your own user - IF YOU WANT**
 
 	addgroup --gid 1000 ubuntu
 	adduser --uid 1000 --gid 1000 ubuntu
