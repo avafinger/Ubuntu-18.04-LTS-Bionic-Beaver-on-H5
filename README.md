@@ -248,14 +248,19 @@ Change the SDCARD=/dev/sdX (our sd card device) to your /dev/sdX (X is your devi
 
 	
 *This will be the minimum packages nd if you want a bit more like dev tools and console fonts, install ubutu-minimal*
+
+	
 	apt-get install ubuntu-minimal
 
 	
  	
 *if you want to login with *ssh* then install it*
+
+
 	apt-get install ssh
 	sync
 	exit (*Exit from chroot*)
+
 
 
 Now we need to be able to login as **root** without password, do in shell:
