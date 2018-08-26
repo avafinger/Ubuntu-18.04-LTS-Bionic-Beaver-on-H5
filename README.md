@@ -55,19 +55,22 @@ Full kernel build takes > 5 hrs on a slow SD CARD.
 
 |  SBC Dev Board sample  |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |
 |------------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|
-| kernel version         |      4.17.rc5         |      4.17.rc6         |      4.17.rc7         |      4.17.3           |      NA               |      NA               |
-| gcc version            |      7.2.1            |      7.2.1            |      7.3.0            |      7.2.1            |      NA               |      NA               |
-| display / Touch ID     |      2.8" TFT ILI9341 |      2.8" TFT ILI9341 |      2.8" TFT ILI9341 |   hdmi / 1920x1080    |      NA               |      NA               |
-| graphical interface    |      framebuffer      |      framebuffer      |      framebuffer      |      framebuffer      |      NA               |      NA               |
+| kernel version         |      4.17.19 EOL      |      4.18.5           |      4.17.rc7         |      4.17.3           |      NA               |      NA               |
+| gcc version            |      7.3.1            |      7.3.1            |      7.3.0            |      7.2.1            |      NA               |      NA               |
+| display / Touch ID     |      HDMI             |      HDMI             |      2.8" TFT ILI9341 |   hdmi / 1920x1080    |      NA               |      NA               |
+| graphical interface    |      Desktop          |      Desktop          |      framebuffer      |      framebuffer      |      NA               |      NA               |
 | power regulator IC     |      SY8106           |      SY8106           |      SY8106           |      SY8106           |      SY8106           |      SY8106           |
-| idle Temp ºC / freq    |      NA / 648 Mhz (*) |  25 ºC / ~720 Mhz     |  26 ºC / ~720 Mhz     |  33 ºC / ~720 Mhz     |      NA               |      NA               |
-| full Temp ºC / freq    |      NA / 1368 Mhz    |  51 ºC / 1368 Mhz (**)|  54 ºC / 1368 Mhz(***)|  68 ºC / 1368 Mhz(***)|      NA               |      NA               |
-| RAM memory usage (avg) |      55 Mbytes        |      54 Mbytes        |      55 Mbytes        |      78 Mbytes        |      NA               |      NA               |
-| Wifi                   |      Ok               |      NA               |      Ok               |      Ok               |      NA               |      NA               |
+| idle Temp ºC / freq    |  25 ºC / ~720 Mhz     |  26 ºC / ???? Mhz     |  26 ºC / ~720 Mhz     |  33 ºC / ~720 Mhz     |      NA               |      NA               |
+| full Temp ºC / freq    |  70 ºC / 1368 Mhz     |  80 ºC / ???? Mhz (**)|  54 ºC / 1368 Mhz(***)|  68 ºC / 1368 Mhz(***)|      NA               |      NA               |
+| RAM memory usage (avg) |      189 Mbytes       |     189 Mbytes        |      55 Mbytes        |      78 Mbytes        |      NA               |      NA               |
+| Wifi                   |      Ok               |      Ok               |      Ok               |      Ok               |      NA               |      NA               |
 | BT                     |      none             |      NA               |      NA               |      NA               |      NA               |      NA               |
-| issues                 |      none             |      (1)              |      none             | none                  | none                  | none                  |
+| issues                 |      none (2)         |      (1)              |      none             | none                  | none                  | none                  |
 
-(1) When in very high load with Wifi and Gbps in use, Wifi has disconected and reconected later, i think regulatory.db is not properly populated
+(1) Not able to get cpu frequency
+(2) Light Desktop, no HW encoding/decoding, usable
+
+[![htop](https://github.com/avafinger/Ubuntu-18.04-LTS-Bionic-Beaver-on-H5/raw/master/img/k1plus_desktop.png)]
 
 (*) Still not able to get  /sys/class/thermal/thermal_zone0/temp due to missing THS. (Fixed)
 
