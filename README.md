@@ -8,6 +8,37 @@ Chose a dev board specific to your needs and a kernel version to work best with 
 
 The table below shows the first run and values gathered are not final, YET.
 
+Cpu-freq
+[![k1 plus cpu-freq kerne l 4.18.5](https://github.com/avafinger/Ubuntu-18.04-LTS-Bionic-Beaver-on-H5/raw/master/img/cpu-freq.gif)]
+
+
+|  SBC Dev Board sample  |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |
+|------------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|
+| kernel version         |      4.17.19 EOL      |      4.18.5           |      4.17.rc7         |      4.17.3           |      NA               |      NA               |
+| gcc version            |      7.3.1            |      7.3.1            |      7.3.0            |      7.2.1            |      NA               |      NA               |
+| display / Touch ID     |      HDMI             |      HDMI             |      2.8" TFT ILI9341 |   hdmi / 1920x1080    |      NA               |      NA               |
+| graphical interface    |      Desktop          |      Desktop          |      framebuffer      |      framebuffer      |      NA               |      NA               |
+| power regulator IC     |      SY8106           |      SY8106           |      SY8106           |      SY8106           |      SY8106           |      SY8106           |
+| idle Temp ºC / freq    |  25 ºC / ~720 Mhz     |  26 ºC / ???? Mhz     |  26 ºC / ~720 Mhz     |  33 ºC / ~720 Mhz     |      NA               |      NA               |
+| full Temp ºC / freq    |  70 ºC / 1368 Mhz     |  80 ºC / ???? Mhz (**)|  54 ºC / 1368 Mhz(***)|  68 ºC / 1368 Mhz(***)|      NA               |      NA               |
+| RAM memory usage (avg) |      189 Mbytes       |     189 Mbytes        |      55 Mbytes        |      78 Mbytes        |      NA               |      NA               |
+| Wifi                   |      Ok               |      Ok               |      Ok               |      Ok               |      NA               |      NA               |
+| BT                     |      none             |      NA               |      NA               |      NA               |      NA               |      NA               |
+| issues                 |      none (2)         |      (1)              |      none             | none                  | none                  | none                  |
+
+(1) Not able to get cpu frequency
+(2) Light Desktop, no HW encoding/decoding, usable
+
+[![htop](https://github.com/avafinger/Ubuntu-18.04-LTS-Bionic-Beaver-on-H5/raw/master/img/k1plus_desktop.png)]
+
+(*) Still not able to get  /sys/class/thermal/thermal_zone0/temp due to missing THS. (Fixed)
+
+(**) THS added to the kernel, CPU avg freq for the 4 cores = 110% , never gets 400% while compiling the full kernel on board. (Fixed)
+Can use 100% of all cores for the tests. (FIXED)
+
+(***) The ambient temp varies along the test and is not a controlled ambient, so it is just for reference.
+
+
 |  SBC Dev Board sample  |      NEO2             |      NEO2             |      NEO2             |      NEO2             |      NEO2             |      NEO2             |
 |------------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|
 | kernel version         |   4.17.rc5            |    4.17.rc4           |    4.17.rc1           |     4.16.8            |     4.15.18           |    4.14.30            |
@@ -53,31 +84,6 @@ Full kernel build takes > 5 hrs on a slow SD CARD.
 Full kernel build takes > 5 hrs on a slow SD CARD.
   
 
-|  SBC Dev Board sample  |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |
-|------------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|
-| kernel version         |      4.17.19 EOL      |      4.18.5           |      4.17.rc7         |      4.17.3           |      NA               |      NA               |
-| gcc version            |      7.3.1            |      7.3.1            |      7.3.0            |      7.2.1            |      NA               |      NA               |
-| display / Touch ID     |      HDMI             |      HDMI             |      2.8" TFT ILI9341 |   hdmi / 1920x1080    |      NA               |      NA               |
-| graphical interface    |      Desktop          |      Desktop          |      framebuffer      |      framebuffer      |      NA               |      NA               |
-| power regulator IC     |      SY8106           |      SY8106           |      SY8106           |      SY8106           |      SY8106           |      SY8106           |
-| idle Temp ºC / freq    |  25 ºC / ~720 Mhz     |  26 ºC / ???? Mhz     |  26 ºC / ~720 Mhz     |  33 ºC / ~720 Mhz     |      NA               |      NA               |
-| full Temp ºC / freq    |  70 ºC / 1368 Mhz     |  80 ºC / ???? Mhz (**)|  54 ºC / 1368 Mhz(***)|  68 ºC / 1368 Mhz(***)|      NA               |      NA               |
-| RAM memory usage (avg) |      189 Mbytes       |     189 Mbytes        |      55 Mbytes        |      78 Mbytes        |      NA               |      NA               |
-| Wifi                   |      Ok               |      Ok               |      Ok               |      Ok               |      NA               |      NA               |
-| BT                     |      none             |      NA               |      NA               |      NA               |      NA               |      NA               |
-| issues                 |      none (2)         |      (1)              |      none             | none                  | none                  | none                  |
-
-(1) Not able to get cpu frequency
-(2) Light Desktop, no HW encoding/decoding, usable
-
-[![htop](https://github.com/avafinger/Ubuntu-18.04-LTS-Bionic-Beaver-on-H5/raw/master/img/k1plus_desktop.png)]
-
-(*) Still not able to get  /sys/class/thermal/thermal_zone0/temp due to missing THS. (Fixed)
-
-(**) THS added to the kernel, CPU avg freq for the 4 cores = 110% , never gets 400% while compiling the full kernel on board. (Fixed)
-Can use 100% of all cores for the tests. (FIXED)
-
-(***) The ambient temp varies along the test and is not a controlled ambient, so it is just for reference.
  
 Kernel:
 
