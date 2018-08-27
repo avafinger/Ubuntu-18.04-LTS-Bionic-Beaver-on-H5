@@ -10,6 +10,8 @@ The table below shows the first run and values gathered are not final, YET.
 
 * NanoPi K1 Plus Desktop OS Image with Mainline Kernel 4.18.5 is available at mega (8GB SD Card) (experimental)
 
+	https://mega.nz/#F!0WZACYyY!8WBEsKzzZaMk63aXHKtuOA
+
 Credits:
  * FE for the board and initial kernel (K1 Plus)
  * sunxi community (THS, HDMI, mali)
