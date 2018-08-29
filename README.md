@@ -12,6 +12,11 @@ The table below shows the first run and values gathered are not final, YET.
 
 	https://mega.nz/#F!0WZACYyY!8WBEsKzzZaMk63aXHKtuOA
 
+
+  User: ubuntu     
+  Pasw: ubuntu
+
+
 Credits:
  * FE for the board and initial kernel (K1 Plus)
  * sunxi community (THS, HDMI, mali)
@@ -31,6 +36,7 @@ Cpu-freq
 | idle Temp ºC / freq    |  25 ºC / ~720 Mhz     |  35 ºC / ~720 Mhz     |  26 ºC / ~720 Mhz     |  33 ºC / ~720 Mhz     |      NA               |      NA               |
 | full Temp ºC / freq    |  70 ºC / 1368 Mhz     |  75 ºC / 1368 Mhz (**)|  54 ºC / 1368 Mhz(***)|  68 ºC / 1368 Mhz(***)|      NA               |      NA               |
 | RAM memory usage (avg) |      289 Mbytes       |     289 Mbytes        |      55 Mbytes        |      78 Mbytes        |      NA               |      NA               |
+| Camera OV5640          |  30 FPS YUV (full HD) |  30 FPS YUV (full HD) |      NA               |      NA               |      NA               |      NA               |
 | Wifi                   |      Ok               |      Ok               |      Ok               |      Ok               |      NA               |      NA               |
 | BT                     |      none             |      NA               |      NA               |      NA               |      NA               |      NA               |
 | issues                 |      none (2)         |      none (2)         |      none             | none                  | none                  | none                  |
