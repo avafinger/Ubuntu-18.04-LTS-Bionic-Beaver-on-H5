@@ -19,10 +19,10 @@ The table below shows the first run and values gathered are not final, YET.
 * Kernel update (4.18.6 + ZRAM)
 
 
-	sudo dpkg -i linux-image-4.18.6-h5-desktop_1.0-1.deb	  
-	sync
-	sudo shutdown -h now
-	then power cycle the board
+		sudo dpkg -i linux-image-4.18.6-h5-desktop_1.0-1.deb	  
+		sync
+		sudo shutdown -h now
+		then power cycle the board
 
 
 
