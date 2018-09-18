@@ -25,7 +25,7 @@ The table below shows the first run and values gathered are not final, YET.
 		then power cycle the board
 
 
-* Kernel and opp update (4.18.7 + ZARM)
+* Kernel and opp update (4.18.7 + ZRAM)
 
 
 		sudo dpkg -i linux-image-4.18.7-h5-desktop_1.0-2.deb
@@ -34,7 +34,17 @@ The table below shows the first run and values gathered are not final, YET.
 		then power cycle the board
 
 
+* Kernel and opp update (4.18.8 + ZRAM)
+
+
+		sudo dpkg -i linux-image-4.18.8-h5-desktop_1.0-2.deb
+		sync
+		sudo shutdown -h now
+		then power cycle the board
+
+
 Credits:
+
  * FE for the board and initial kernel (K1 Plus)
  * sunxi community (THS, HDMI, mali)
  * Armbian (tips, technical stuff)
@@ -45,18 +55,18 @@ Cpu-freq
 
 |  SBC Dev Board sample  |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |      K1 Plus          |
 |------------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|
-| kernel version         |      4.17.19 EOL      |      4.18.5           |      4.18.7           |      4.17.3           |      NA               |      NA               |
-| gcc version            |      7.3.1            |      7.3.1            |      7.3.1            |      7.2.1            |      NA               |      NA               |
+| kernel version         |      4.17.19 EOL      |      4.18.5           |      4.18.7           |      4.18.8           |      NA               |      NA               |
+| gcc version            |      7.3.1            |      7.3.1            |      7.3.1            |      7.3.1            |      NA               |      NA               |
 | display / Touch ID     |    hdmi / 1920x1080   |   hdmi / 1920x1080    |    hdmi / 1920x1080   |   hdmi / 1920x1080    |      NA               |      NA               |
 | graphical interface    |      X11 / Desktop    |      X11 / Desktop    |      X11 / Desktop    |      framebuffer      |      NA               |      NA               |
 | power regulator IC     |      SY8106           |      SY8106           |      SY8106           |      SY8106           |      SY8106           |      SY8106           |
-| idle Temp ºC / freq    |  25 ºC / ~720 Mhz     |  35 ºC / ~720 Mhz     |  35 ºC / ~720 Mhz     |  33 ºC / ~720 Mhz     |      NA               |      NA               |
-| full Temp ºC / freq    |  70 ºC / 1368 Mhz     |  75 ºC / 1368 Mhz (**)|  75 ºC / 1368 Mhz(***)|  68 ºC / 1368 Mhz(***)|      NA               |      NA               |
-| RAM memory usage (avg) |      289 Mbytes       |     289 Mbytes        |     289 Mbytes        |      78 Mbytes        |      NA               |      NA               |
+| idle Temp ºC / freq    |  25 ºC / ~720 Mhz     |  35 ºC / ~720 Mhz     |  35 ºC / ~720 Mhz     |  35 ºC / ~720 Mhz     |      NA               |      NA               |
+| full Temp ºC / freq    |  70 ºC / 1368 Mhz     |  75 ºC / 1368 Mhz (**)|  75 ºC / 1368 Mhz(***)|  75 ºC / 1368 Mhz(***)|      NA               |      NA               |
+| RAM memory usage (avg) |      289 Mbytes       |     289 Mbytes        |     289 Mbytes        |     289 Mbytes        |      NA               |      NA               |
 | Camera OV5640          |  30 FPS YUV (full HD) |  30 FPS YUV (full HD) |  30 FPS YUV (full HD) |      NA               |      NA               |      NA               |
 | Wifi                   |      Ok               |      Ok               |      Ok               |      Ok               |      NA               |      NA               |
 | BT                     |      none             |      NA               |      NA               |      NA               |      NA               |      NA               |
-| issues                 |      none (2)         |      none (2)         |      none  (2)(3)     | none                  | none                  | none                  |
+| issues                 |      none (2)         |      none (2)         |      none  (2)(3)     |     none  (2)(3)      | none                  | none                  |
 
 (1) Not able to get cpu frequency
 (2) Light Desktop, no HW encoding/decoding, no mali, usable
